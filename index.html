@@ -11,7 +11,7 @@
 		$("h1").click(function() {
     		$.getJSON('https://api-v3.mbta.com/routes', function(data) {
 	 		console.log("This is mbtainfo", data);
-	 		document.write(data);
+	 		document.write(data[0].color);
 	 		});
   		});
   
