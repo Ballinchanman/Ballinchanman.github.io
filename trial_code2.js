@@ -2,9 +2,9 @@ $(document).ready(function(){
     $("button").click(function(){
 		$.getJSON('https://api-v3.mbta.com/routes', function(data) {
 	 		console.log("This is mbtainfo", data);
-	 		document.write(data);
-	 		document.write(data.object);
-	 		mbtainfo = data;
+	 		document.write(JSON.stringify(data.data[0]));
+	 		//document.write(data.object);
+	 		//mbtainfo = data;
 	 	});
 	 });
 
