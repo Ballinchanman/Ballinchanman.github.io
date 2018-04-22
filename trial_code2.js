@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $("button").click(function(){
-		$.getJSON('https://api-v3.mbta.com/routes', function(data) {
+		$.getJSON('https://api-v3.mbta.com/routes?filter=3', function(data) {
 	 		console.log("This is mbtainfo", data);
 	 		document.write(JSON.stringify(data.data[0]));
 	 		//document.write(data.object);
