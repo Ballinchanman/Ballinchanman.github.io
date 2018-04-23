@@ -42,7 +42,7 @@ $(document).ready(function(){
                         //         + ", has coordinates " + tripstops[i].attributes.latitude + " and " + tripstops[i].attributes.longitude +
                         //         ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule[i].attributes.arrivaltime + ".<br>");
                         // }
-                        document.write(tripstops.data[0].attributes.name);
+                        document.write(JSON.stringify(tripstops));
                     });
                
                 });
