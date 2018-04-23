@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 
                     $.getJSON(`https://api-v3.mbta.com/stops?filter[id]=${triproutesstring}`, function(tripstops) {
-                        for(let i = 0, i < triproutes.length, i++) {
+                        for(let i = 0; i < triproutes.length; i++) {
                             document.write("Stop " + tripschedule.data[i].attributes.stop_sequence + ", " + tripstops.data[i].attributes.name
                                 + ", has coordinates " + tripstops[i].attributes.latitude + " and " + tripstops[i].attributes.longitude +
                                 ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule[i].attributes.arrivaltime + ".<br>");
