@@ -40,7 +40,7 @@ $(document).ready(function(){
                             document.write("Stop " + tripschedule.data[i].attributes.stop_sequence + ", " 
                                 + tripstops.data[i].attributes.name
                                 + ", has coordinates " + tripstops.data[i].attributes.latitude + " and " + tripstops.data[i].attributes.longitude +
-                                ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule.data[i].attributes.arrivaltime + ".<br>");
+                                ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule.data[i].attributes.arrival_time + ".<br>");
                         }
                         //document.write(JSON.stringify(tripstops));
                     });
