@@ -42,7 +42,8 @@ $(document).ready(function(){
                         //         + ", has coordinates " + tripstops[i].attributes.latitude + " and " + tripstops[i].attributes.longitude +
                         //         ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule[i].attributes.arrivaltime + ".<br>");
                         // }
-                        document.write(JSON.stringify(tripstops));
+                        //document.write(JSON.stringify(tripstops));
+                        document.write(triproutesstring);
                     });
                
                 });
