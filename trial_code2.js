@@ -10,13 +10,13 @@
 // });
 
 
-
+var routeid;
+var tripid;
 $(document).ready(function(){
     $("button").click(function(){
 		$.getJSON('https://api-v3.mbta.com/routes?filter[type]=3', function(routedata) {
 	 		console.log("This is mbtainfo", routedata);
-	 		var routeid = routedata.data[0].id;
-	 		tripid = 0;
+	 		routeid = routedata.data[0].id;
 	 		$.getJSON(`https://api-v3.mbta.com/schedules?filter[route]=${routeid}`, function(routeschedule) {
 	 			//document.write(JSON.stringify(routeschedule));
 	 			//document.write(JSON.stringify(routeschedule.data[0].relationships));
