@@ -23,14 +23,26 @@ $(document).ready(function(){
                 tripid = routeschedule.data[0].relationships.trip.data.id;
                 //document.write(JSON.stringify(tripid));
                 $.getJSON(`https://api-v3.mbta.com/schedules?filter[trip]=${tripid}`, function(tripschedule) {
-                    tripschedule.data.forEach(function(element, index, data) {
+                    tripschedule.data.forEach(function(element, index, arr) {
                         triproutes.push(JSON.stringify(element.relationships.stop.data.id))
                     });
                     //document.write(triproutes);
+                    var triproutesstring = "";
+                    triproutes.forEach(function(element, index, arr) {
+                        triproutesstring += element + ",";
+                    })
 
-                    // $.getJSON(`https://api-v3.mbta.com/stops?filter[trip]=${tripid}`, function(tripschedule) {
+                    
 
-                    // }                    
+
+                    $.getJSON(`https://api-v3.mbta.com/stops?filter[id]=${triproutesstring}`, function(tripstops) {
+                        for(let i = 0, i < triproutes.length, i++) {
+                            document.write("Stop " + tripschedule.data[i].attributes.stop_sequence + ", " + tripstops.data[i].attributes.name
+                                + ", has coordinates " + tripstops[i].attributes.latitude + " and " + tripstops[i].attributes.longitude +
+                                ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule[i].attributes.arrivaltime + ".<br>");
+                        }
+                    });
+               
                 });
             });
             // document.write(JSON.stringify(tripid));
@@ -41,7 +53,7 @@ $(document).ready(function(){
             //  document.write(JSON.stringify(scheduleid));
             // });
         });
-        document.write(triproutes);
+        //document.write(triproutes);
      });
 });
 
