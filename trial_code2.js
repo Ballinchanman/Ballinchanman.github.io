@@ -15,9 +15,9 @@ $(document).ready(function(){
     $("button").click(function(){
 		$.getJSON('https://api-v3.mbta.com/routes?filter[type]=3', function(routedata) {
 	 		console.log("This is mbtainfo", routedata);
-	 		document.write(JSON.stringify(routedata.data[0].attributes.color));
-	 		//document.write(data.object);
-	 		//mbtainfo = data;
+	 		var routeid = routedata.data[0].id;
+	 		$.getJSON(`https://api-v3.mbta.com/schedule?filter[route]=${routeid}`, function(routeschedule) {
+	 			document.write(JSON.stringify(routedata));
 	 	});
 	 });
 });
