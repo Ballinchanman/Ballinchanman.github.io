@@ -26,7 +26,7 @@ $(document).ready(function(){
                     tripschedule.data.forEach(function(element, index, data) {
                         triproutes.push(JSON.stringify(element.relationships.stop.data.id))
                     });
-                    document.write(triproutes);
+                    //document.write(triproutes);
 
                     // $.getJSON(`https://api-v3.mbta.com/stops?filter[trip]=${tripid}`, function(tripschedule) {
 
