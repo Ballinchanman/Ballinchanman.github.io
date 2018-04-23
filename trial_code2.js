@@ -1,19 +1,27 @@
+// $(document).ready(function(){
+//     $("button").click(function(){
+// 		$.getJSON('https://api-v3.mbta.com/routes?filter[type]=3', function(data) {
+// 	 		console.log("This is mbtainfo", data);
+// 	 		document.write(JSON.stringify(data.data[0].attributes.color));
+// 	 		//document.write(data.object);
+// 	 		//mbtainfo = data;
+// 	 	});
+// 	 });
+// });
+
+
+
 $(document).ready(function(){
     $("button").click(function(){
-		$.getJSON('https://api-v3.mbta.com/routes?filter[type]=3', function(data) {
-	 		console.log("This is mbtainfo", data);
-	 		document.write(JSON.stringify(data.data[0].attributes.color));
+		$.getJSON('https://api-v3.mbta.com/routes?filter[type]=3', function(routedata) {
+	 		console.log("This is mbtainfo", routedata);
+	 		document.write(JSON.stringify(routedata.data[0].attributes.color));
 	 		//document.write(data.object);
 	 		//mbtainfo = data;
 	 	});
 	 });
-
-
-$("h1").click(function() {
-    document.write(mbtainfo);
-  });
-  
 });
+
 
 
 //https://api-v3.mbta.com/routes
