@@ -42,6 +42,42 @@ $(document).ready(function(){
                                 + ", has coordinates " + tripstops.data[i].attributes.latitude + " and " + tripstops.data[i].attributes.longitude +
                                 ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule.data[i].attributes.arrival_time + ".<br>");
                         }
+
+
+
+
+                        var tablestring = "<div><table style=" + "width:100%" + ">" +
+                          "<tr><th>Name</th><th>Stop Number</th> <th>Arrival Time</th><th>Longitude</th><th>Latitude</th></tr><tr>" +
+                            "<tr><td>" + tripstops.data[0].attributes.name + "</td><td>" + tripschedule.data[0].attributes.stop_sequence + "</td>" +
+                            "<td>" + tripschedule.data[0].attributes.arrival_time + "</td><td>" + tripstops.data[0].attributes.longitude + "</td>" +
+                            "<td>" + tripstops.data[0].attributes.latitude + "</td></tr></tr></table></div>"
+                        document.write(tablestring);
+                          // <tr>
+                          //   {% for dict in table %}
+                          //       <tr>
+                          //           <td>{{ dict.symbol }}</td>
+                          //           <td>{{ dict.name }}</td>
+                          //           <td>{{ dict.shares }}</td>
+                          //           <td>${{ dict.price }}</td>
+                          //           <td>${{ dict.total }}</td>
+                          //       </tr>
+                          //   {% endfor %}
+                          // </tr>
+                          // <tr>
+                          //     <td>CASH</td>
+                          //     <td></td>
+                          //     <td></td>
+                          //     <td></td>
+                          //     <td>${{ cash }}</td>
+                          // </tr>
+                          // <tr>
+                          //     <td></td>
+                          //     <td></td>
+                          //     <td></td>
+                          //     <td></td>
+                          //     <th>${{ earnings }}</th>
+                          // </tr>
+                        //</table>
                         //document.write(JSON.stringify(tripstops));
                     });
                
