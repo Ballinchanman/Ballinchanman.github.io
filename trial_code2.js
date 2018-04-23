@@ -13,7 +13,7 @@
 
 $(document).ready(function(){
     $("button").click(function(){
-        triproutes = [];
+        var triproutes = [];
         $.getJSON('https://api-v3.mbta.com/routes?filter[type]=3', function(routedata) {
             console.log("This is mbtainfo", routedata);
             var routeid = routedata.data[0].id;
