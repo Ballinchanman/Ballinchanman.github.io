@@ -19,7 +19,8 @@ $(document).ready(function(){
 	 		//var scheduleid;
 	 		$.getJSON(`https://api-v3.mbta.com/schedules?filter[route]=${routeid}`, function(routeschedule) {
 	 			//document.write(JSON.stringify(routeschedule));
-	 			var scheduleid = routeschedule.data[0].relationships.trip.id;
+	 			document.write(JSON.stringify(routeschedule.data[0].relationships));
+	 			//var scheduleid = routeschedule.data[0].relationships.trip.id;
 	 			document.write(JSON.stringify(scheduleid));
 	 		});
 	 	});
