@@ -20,7 +20,7 @@ $(document).ready(function(){
 	 		$.getJSON(`https://api-v3.mbta.com/schedules?filter[route]=${routeid}`, function(routeschedule) {
 	 			//document.write(JSON.stringify(routeschedule));
 	 			//document.write(JSON.stringify(routeschedule.data[0].relationships));
-	 			tripid = routeschedule.data[0].relationships.trip.data.id;
+	 			var tripid = routeschedule.data[0].relationships.trip.data.id;
 	 			//document.write(JSON.stringify(tripid));
 	 		});
 	 		document.write(JSON.stringify(tripid));
