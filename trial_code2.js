@@ -24,8 +24,10 @@ $(document).ready(function(){
                 //document.write(JSON.stringify(tripid));
                 $.getJSON(`https://api-v3.mbta.com/schedules?filter[trip]=${tripid}`, function(tripschedule) {
                     tripschedule.data.forEach(function(element, index, arr) {
-                        triproutes.push(JSON.stringify(element.relationships.stop.data.id))
-                        document.write(JSON.stringify(element.relationships.stop.data.id) + "<br>");
+                        // triproutes.push(JSON.stringify(element.relationships.stop.data.id));
+                        // document.write(JSON.stringify(element.relationships.stop.data.id) + "<br>");
+                        triproutes.push(element.relationships.stop.data.id);
+                        document.write(element.relationships.stop.data.id + "<br>");
                     });
                     //document.write(triproutes);
                     var triproutesstring = "";
