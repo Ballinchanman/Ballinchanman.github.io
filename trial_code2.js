@@ -39,8 +39,8 @@ $(document).ready(function(){
                         for(let i = 0; i < triproutes.length; i++) {
                             document.write("Stop " + tripschedule.data[i].attributes.stop_sequence + ", " 
                                 + tripstops.data[i].attributes.name
-                                + ", has coordinates " + tripstops[i].attributes.latitude + " and " + tripstops[i].attributes.longitude +
-                                ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule[i].attributes.arrivaltime + ".<br>");
+                                + ", has coordinates " + tripstops.data[i].attributes.latitude + " and " + tripstops.data[i].attributes.longitude +
+                                ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule.data[i].attributes.arrivaltime + ".<br>");
                         }
                         //document.write(JSON.stringify(tripstops));
                     });
