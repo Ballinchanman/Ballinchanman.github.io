@@ -21,7 +21,7 @@ $(document).ready(function(){
                 //document.write(JSON.stringify(routeschedule));
                 //document.write(JSON.stringify(routeschedule.data[0].relationships));
                 tripid = routeschedule.data[0].relationships.trip.data.id;
-                //document.write(JSON.stringify(tripid));
+                document.write(JSON.stringify(tripid));
                 $.getJSON(`https://api-v3.mbta.com/schedules?filter[trip]=${tripid}`, function(tripschedule) {
                     tripschedule.data.forEach(function(element, index, arr) {
                         triproutes.push(element.relationships.stop.data.id);
@@ -32,12 +32,12 @@ $(document).ready(function(){
                         triproutesstring += element + ",";
                     })
 
-                    
+
 
 
                     $.getJSON(`https://api-v3.mbta.com/stops?filter[id]=${triproutesstring}`, function(tripstops) {
                         for(let i = 0; i < triproutes.length; i++) {
-                            document.write("Stop " + tripschedule.data[i].attributes.stop_sequence + ", " 
+                            document.write("Stop " + tripschedule.data[i].attributes.stop_sequence + ", "
                                 + tripstops.data[i].attributes.name
                                 + ", has coordinates " + tripstops.data[i].attributes.latitude + " and " + tripstops.data[i].attributes.longitude +
                                 ", headed " + "INBOUND OR OUTBOUND" + " direction. It is scheduled to arrive at " + tripschedule.data[i].attributes.arrival_time + ".<br>");
@@ -97,7 +97,7 @@ $(document).ready(function(){
                         //</table>
                         //document.write(JSON.stringify(tripstops));
                     });
-               
+
                 });
             });
             // document.write(JSON.stringify(tripid));
