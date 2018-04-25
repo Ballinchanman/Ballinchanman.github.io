@@ -55,7 +55,7 @@ $(document).ready(function(){
                         }
                         tablestring += "</table></div>";
                         document.write(tablestring);
-                        document.write('<a href="https://ballinchanman.github.io/maps/">Go to the maps</a>')
+                        document.write('<a href="maps.html">Go to the maps</a>')
 
 
                         // var tablestring = "<div><table style=" + "width:100%" + ">" +
