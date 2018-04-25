@@ -55,6 +55,7 @@ $(document).ready(function(){
                         }
                         tablestring += "</table></div>";
                         document.write(tablestring);
+                        document.write('<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>')
 
 
                         // var tablestring = "<div><table style=" + "width:100%" + ">" +
