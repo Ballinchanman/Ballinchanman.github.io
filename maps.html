@@ -21,7 +21,97 @@
   </head>
   <body>
     <div id="map"></div>
-    <script type="text/javascript" src="maps.js"></script>
+    <!-- <script type="text/javascript" src="maps.js"></script> -->
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 5,
+          // center: myLatLng
+        });
+
+        // var marker = new google.maps.Marker({
+        //   position: myLatLng,
+        //   map: map,
+        //   title: 'Hello World!',
+        //   label: 'Here'
+        // });
+        var stoponelocation = {lat: 42.3522, lng: -71.0552};
+        var stoptwolocation = {lat: 42.3524, lng: -71.0468};
+        var stopthreelocation = {lat: 42.3486, lng: -71.0424};
+        var stopfourlocation = {lat: 42.3470, lng: -71.0388};
+        var stopfivelocation = {lat: 42.3646, lng: -71.0208};
+        var stopone = new google.maps.Marker({
+          position: stoponelocation,
+          map: map,
+          title: 'Hello World!',
+          // label: '1',
+          icon: 'GoogleMapsMarkers/Google Maps Markers/paleblue_MarkerA.png'
+        });
+        var stoptwo = new google.maps.Marker({
+          position: stoptwolocation,
+          map: map,
+          title: 'Hello World!',
+          // label: '2',
+          icon: 'GoogleMapsMarkers/Google Maps Markers/blue_MarkerB.png'
+        });
+        var stopthree = new google.maps.Marker({
+          position: stopthreelocation,
+          map: map,
+          title: 'Hello World!',
+          // label: '3',
+          icon: 'GoogleMapsMarkers/Google Maps Markers/green_MarkerC.png'
+        });
+        var stopfour = new google.maps.Marker({
+          position: stopfourlocation,
+          map: map,
+          title: 'Hello World!',
+          // label: '4',
+          icon: 'GoogleMapsMarkers/Google Maps Markers/darkgreen_MarkerD.png'
+        });
+        var stopfive = new google.maps.Marker({
+          position: stopfivelocation,
+          map: map,
+          title: 'Hello World!',
+          // label: '5',
+          icon: 'GoogleMapsMarkers/Google Maps Markers/purple_MarkerE.png'
+        });
+        var infoWindow = new google.maps.InfoWindow({
+          content: "First Stop"
+        });
+        var marker = new google.maps.Marker({
+          map: map,
+          title: 'Hello World!',
+          label: 'Me'
+        });
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            marker.setPosition(pos);
+            //nextMarker.setPosition(nextBus);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+      }
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaPF8KpUaCqNLFNQMCZFUVOFEio4ZH5Co&callback=initMap">
     </script>

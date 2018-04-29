@@ -2,17 +2,40 @@
 <html>
 
 <head>
- <title>Demo</title>
- <meta http-equiv="content-type" content="text/html; charset=utf-8" />
- <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
- <script type="text/javascript" src="trial_code2.js"></script>
+  <title>Demo</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+      <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="trial_code2.js"></script>
+      <script type="text/javascript" src="dropdown.js"></script>
+      <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
- <h1>Heading one</h1>
- <p>This is just some text for heading 1</p>
+  <div class="dropdown">
+    <button onclick="showItems()" class="dropbtn">Routes</button>
+    <div id="myDropdown" class="dropdown-content">
+        <a>South Station Saturday Bus 22018</a>
+        <a>World Trade Center</a>
+        <a>Silver Line Way</a>
+        <a>Courthouse</a>
+        <a>Manulife Via Park</a>
+        <a>Courts to Boston Logan Airport</a>
+        <a>Friday Fenway-Beacon</a>
+        <a>One Bus</a>
+        <a>Charles Union</a>
+        <a>Highland-Davis</a>
+    </div>
+  </div>
+  <h1>Your Live Bus Tracking and Prediction App</h1>
+  <h2>Choose your bus route</h2>
+  <form>
+    Trip Name: <input type="text" name="FirstName"><br>
+  </form>
 
- <button>Get JSON data</button>
+  <div style="text-align:center; padding-left: 4em">
+     <button id="getroutes">Find Bus</button>
+  </div>
+
 
 </body>
 

@@ -17,11 +17,40 @@ function initMap() {
   var nextMarker = new google.maps.Marker({
     map: map
   });
-  mymarkers = loadbusinfo();
-  // for (var i = 0; i < mymarkers.length; i++) {
-  //   mymarkers[i].setMap(map);
-  // }
+ mymarkers = loadbusinfo();
+ console.log(mymarkers);
+  for (var i = 0; i < mymarkers.length; i++) {
+    mymarkers[i].setMap(map);
+  }
   // Try HTML5 geolocation.
+  var stoponelocation = {lat: 42.352, lng: -71.055};
+  var stopone = new google.maps.Marker({
+    position: stoponelocation,
+    map: map,
+    title: 'Hello World!'
+  });
+  // var stop2 = new google.maps.Marker({
+  //   lat: Number(tripstops.data[i].attributes.latitude),
+  //   lng: Number(tripstops.data[i].attributes.longitude),
+  //   map: map
+  // });
+  // var stop3 = new google.maps.Marker({
+  //   lat: Number(tripstops.data[i].attributes.latitude),
+  //   lng: Number(tripstops.data[i].attributes.longitude),
+  //   map: map
+  // });
+  // var stop4 = new google.maps.Marker({
+  //   lat: Number(tripstops.data[i].attributes.latitude),
+  //   lng: Number(tripstops.data[i].attributes.longitude),
+  //   map: map
+  // });
+  // var stop5 = new google.maps.Marker({
+  //   lat: Number(tripstops.data[i].attributes.latitude),
+  //   lng: Number(tripstops.data[i].attributes.longitude),
+  //   map: map
+  // });
+
+
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
@@ -29,9 +58,7 @@ function initMap() {
         lng: position.coords.longitude
       };
       marker.setPosition(pos);
-      console.log(marker);
       nextMarker.setPosition(nextBus);
-      console.log(nextBus);
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -76,10 +103,12 @@ function loadbusinfo() {
                   var markers = []
                     for (var i = 0; i < tripstops.data.length; i++) {
                       var marker = new google.maps.Marker({
-                        lat: tripstops.data[i].attributes.latitude,
-                        lng: tripstops.data[i].attributes.longitude,
+                        lat: Number(tripstops.data[i].attributes.latitude),
+                        lng: Number(tripstops.data[i].attributes.longitude),
                         map: map
                       });
+                      console.log(typeof(tripstops.data[i].attributes.latitude),typeof(tripstops.data[i].attributes.longitude));
+                      console.log(tripstops.data[i].attributes.latitude,tripstops.data[i].attributes.longitude);
                       // console.log("The current marker", marker);
 
                       var infoWindow = new google.maps.InfoWindow({
@@ -94,13 +123,14 @@ function loadbusinfo() {
                     console.log(markers);
                     console.log(map);
 
-                    return markers;
+                    // return markers;
 
 
                 });
 
             });
         });
+        return markers;
     });
 }
 

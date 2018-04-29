@@ -52,7 +52,34 @@ function addMarker(tripinfo) {
   });
 }
 
-
+// $(document).ready(function() {
+//     $.ajax({
+//         type: "GET",
+//         url: "trips.txt",
+//         dataType: "text",
+//         success: function(data) {processData(data);}
+//      });
+// });
+//
+// function processData(allText) {
+//     var allTextLines = allText.split(/\r\n|\n/);
+//     var headers = allTextLines[0].split(',');
+//     var lines = [];
+//
+//     for (var i=1; i<allTextLines.length; i++) {
+//         var data = allTextLines[i].split(',');
+//         if (data.length == headers.length) {
+//
+//             var tarr = [];
+//             for (var j=0; j<headers.length; j++) {
+//                 tarr.push(headers[j]+":"+data[j]);
+//             }
+//             lines.push(tarr);
+//         }
+//     }
+//     document.write(lines[256])
+//     // alert(lines);
+// }
 
 //https://api-v3.mbta.com/routes
 //curl -X GET "https://api-v3.mbta.com/trips?sort=block_id&filter%5Bdirection_id%5D=0" -H "accept: application/vnd.api+json"
