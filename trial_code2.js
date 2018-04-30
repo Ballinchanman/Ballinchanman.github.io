@@ -53,7 +53,7 @@ $(document).ready(function(){
                         }
                         tablestring += "</table></div>";
                         document.write(tablestring);
-                        document.write('<a href="maps.html">Go to the maps</a></br>');
+                        document.write('<a href="maps2.html">Go to the maps</a></br>');
                         // document.write('<a href="maps.html">Go to the maps</a></br>')
                         //document.write(JSON.stringify(triproutesstring));
                         document.write("<h1>Upcoming Routes</h1></br>");
