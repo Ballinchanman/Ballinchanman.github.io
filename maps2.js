@@ -2,7 +2,7 @@
 function initMap() {
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+    zoom: 5,
   });
 
 
@@ -86,12 +86,16 @@ function initMap() {
         icon: icons[i]
     });
     var infoWindow = new google.maps.InfoWindow({
-      content: `<h1>${locationinfo[i].name}</h1>`
+
       // content: `<h1>Help</h1>`
     });
-    marker.addListener('click', function() {
-      infoWindow.open(map, marker);
-    });
+    google.maps.event.addListener(marker,'click', (function(marker,i) {
+      return function() {
+        var content= `<h1>${locationinfo[i].name}</h1>`
+        infoWindow.setContent(content);
+        infoWindow.open(map, marker);
+      }
+    })(marker, i));
     markers.push(marker);
   }
   // for (var i = 0; i < markers.length; i++) {
