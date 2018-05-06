@@ -1,15 +1,3 @@
-// $(document).ready(function(){
-//     $("button").click(function(){
-//      $.getJSON('https://api-v3.mbta.com/routes?filter[type]=3', function(data) {
-//          console.log("This is mbtainfo", data);
-//          document.write(JSON.stringify(data.data[0].attributes.color));
-//          //document.write(data.object);
-//          //mbtainfo = data;
-//      });
-//   });
-// });
-
-
 
 $(document).ready(function(){
     $("#getroutes").click(function(){
@@ -65,13 +53,6 @@ $(document).ready(function(){
                         });
 
 
-
-
-
-
-                        36686311
-                        // document.write('<a href="maps.html">Go to the maps</a></br>')
-                        //document.write(JSON.stringify(triproutesstring));
                         // document.write("<h1>Upcoming Routes</h1></br>");
                         // $("body").css({"background": "skyblue", "font-family": "verdana", "color": "#fff", "padding": "30px"});
                         // $("a").css("color", "black");

@@ -2,11 +2,8 @@
 function initMap() {
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 5,
+    zoom: 12,
   });
-
-
-// var stoponelocation = {lat: 42.3522, lng: -71.0552};
 
   var locationinfo = [];
   var buspos = {lat:0, lng:0};
@@ -21,7 +18,7 @@ function initMap() {
 
           // $.getJSON(`https://api-v3.mbta.com/schedules?filter[trip]=${tripid}`, function(tripschedule) {
           // for getting active bus stops (change trip id)
-          $.getJSON(`https://api-v3.mbta.com/schedules?filter[trip]=36686311`, function(tripschedule) {
+          $.getJSON(`https://api-v3.mbta.com/schedules?filter[trip]=36682956`, function(tripschedule) {
               tripschedule.data.forEach(function(element, index, arr) {
                   triproutes.push(element.relationships.stop.data.id);
               });
@@ -50,10 +47,7 @@ function initMap() {
               });
 
               // for getting active bus location (change trip id)
-
-              $.getJSON(`https://api-v3.mbta.com/vehicles?filter[trip]=36686311`, function(vehicleinfo) {
-                // document.write(vehicleinfo.data[0].attributes.latitude + '</br>');
-                // document.write(vehicleinfo.data[0].attributes.longitude + '</br>');
+              $.getJSON(`https://api-v3.mbta.com/vehicles?filter[trip]=36682956`, function(vehicleinfo) {
                 buspos = {
                   lat: vehicleinfo.data[0].attributes.latitude,
                   lng: vehicleinfo.data[0].attributes.longitude
@@ -116,8 +110,6 @@ function initMap() {
         icon: icons[i]
     });
     var infoWindow = new google.maps.InfoWindow({
-
-      // content: `<h1>Help</h1>`
     });
     google.maps.event.addListener(marker,'click', (function(marker,i) {
       return function() {
@@ -128,15 +120,6 @@ function initMap() {
     })(marker, i));
     markers.push(marker);
   }
-  // for (var i = 0; i < markers.length; i++) {
-  //   var infoWindow = new google.maps.InfoWindow({
-  //     content: `<h1>${locationinfo[i].name}</h1>`
-  //   });
-  //   markers[i].addListener('click', function() {
-  //     infoWindow.open(map, markers[i]);
-  //   });
-  // }
-
 
   var marker = new google.maps.Marker({
       position: buspos,
@@ -178,7 +161,6 @@ function initMap() {
         lng: position.coords.longitude
       };
       marker.setPosition(pos);
-      //nextMarker.setPosition(nextBus);
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
